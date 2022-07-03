@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="tm.js"></script>
+    <script src="transitions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            border: 2px solid black;
+            width: 700px;
+            height: 70vh;
+            overflow: scroll;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table td{
+            border: 1px solid black;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h4 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Turing Machine</h1>
+    <select name="operasi" id="operasi" value="addition" onchange="EgInput();">
+        <option value="addition">Addition</option>
+        <option value="substraction">Substraction</option>
+        <option value="multiplication">Multiplication</option>
+        <option value="division">Division</option>
+        <option value="factorial">Factorial</option>
+        <option value="power">Power</option>
+        <option value="logaritma_biner">Logaritma Biner</option>
+        <option value="celcius_fahrenheit">C to F</option>
+        <option value="celcius_kelvin">C to K</option>
+        <option value="fahrenheit_celcius">F to C</option>
+        <option value="fahrenheit_kelvin">F to K</option>
+        <option value="kelvin_celcius">K to C</option>
+        <option value="kelvin_fahrenheit">K to F</option>
+    </select>
+    <input type="text" name="input" id="input"  >
+    <button id="btn-submit">Submit</button>
+    <div>
+        <span>Input : </span>
+        <span id="eg-input">
+
+        </span>
+    </div>
+    <h4>Hasil</h4>
+    <table id="last_result" style="margin-bottom: 20px;">
+
+    </table>
+    <div class="container">
+        <table id="result">
+
+        </table>
+    </div>
+    
+
+    <script>
+        console.log(division);
+
+        $('#btn-submit').on('click', function(){
+            $('#result').empty();
+            $('#last_result').empty();
+            var operasi = $('#operasi').val();
+            switch (operasi) {
+                case 'addition': var result = Run(addition); show_output(result); break;
+                case 'factorial': var result = Run(factorial); show_output(result); break;
+                case 'substraction': var result = Run(substraction, 'substraction'); show_output(result); break;
+                case 'multiplication': var result = Run(multiplication, 'multiplication'); show_output(result); break;
+                case 'division': var result = Run(division); show_output(result); break;
+                case 'power': var result = Run(power); show_output(result); break;
+                case 'logaritma_biner': var result = Run(logaritma_biner); show_output(result); break;
+                case 'celcius_fahrenheit': var result = Run(celcius_fahrenheit); show_output(result); break;
+                case 'celcius_kelvin': var result = Run(celcius_kelvin); show_output(result); break;
+                case 'fahrenheit_celcius': var result = Run(fahrenheit_celcius); show_output(result); break;
+                case 'fahrenheit_kelvin': var result = Run(fahrenheit_kelvin); show_output(result); break;
+                case 'kelvin_celcius': var result = Run(kelvin_celcius); show_output(result); break;
+                case 'kelvin_fahrenheit': var result = Run(kelvin_fahrenheit); show_output(result); break;
+                default:
+                    break;
+            }
+            console.log(operasi);
+        })
+    </script>
+</body>
+</html>
