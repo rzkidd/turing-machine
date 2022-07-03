@@ -763,7 +763,7 @@ const substraction = {
     },
     q6: {
         0: ["q7", "0", "L"],
-        B: ["qAccept", "B", "S"],
+        B: ["q6", "B", "R"],
     },
     q7: {
         B: ["qAccept", "M", "S"],
@@ -782,7 +782,7 @@ const substraction = {
     },
     q10: {
         0: ["q11", "0", "L"],
-        B: ["qAccept", "B", "S"],
+        B: ["q10", "B", "R"],
     },
     q11: {
         B: ["qAccept", "M", "S"],
