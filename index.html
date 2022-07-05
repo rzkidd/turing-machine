@@ -44,6 +44,7 @@
     <select name="operasi" id="operasi" value="addition" onchange="EgInput();">
         <option value="addition">Addition</option>
         <option value="substraction">Substraction</option>
+        <option value="substraction_min">Substraction_min</option>
         <option value="multiplication">Multiplication</option>
         <option value="division">Division</option>
         <option value="factorial">Factorial</option>
@@ -61,7 +62,7 @@
     <div>
         <span>Input : </span>
         <span id="eg-input">
-
+            0<sup>n</sup>C0<sup>m</sup>
         </span>
     </div>
     <h4>Hasil</h4>
@@ -76,7 +77,6 @@
     
 
     <script>
-        console.log(division);
 
         $('#btn-submit').on('click', function(){
             $('#result').empty();
@@ -86,6 +86,7 @@
                 case 'addition': var result = Run(addition); show_output(result); break;
                 case 'factorial': var result = Run(factorial); show_output(result); break;
                 case 'substraction': var result = Run(substraction, 'substraction'); show_output(result); break;
+                case 'substraction_min': var result = Run(substraction_min, 'substraction_min'); show_output(result); break;
                 case 'multiplication': var result = Run(multiplication, 'multiplication'); show_output(result); break;
                 case 'division': var result = Run(division); show_output(result); break;
                 case 'power': var result = Run(power); show_output(result); break;

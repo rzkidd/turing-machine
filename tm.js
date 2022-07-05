@@ -1,6 +1,5 @@
 
 function Run(transitions, rule_name){
-    console.log(transitions);
     function replace(to_replace, replacer, index) {
         var temp = to_replace.slice(0, index) + replacer + to_replace.slice(index + 1);
         return temp;
@@ -31,7 +30,7 @@ function Run(transitions, rule_name){
             cur_string: 
                 (str_input.match('BB') && rule_name !== 'multiplication') ? 
                     (rule_name == 'substraction') ? 
-                        str_input.slice(str_input.search(/[^B]/)-1) 
+                        str_input 
                         : deleteBlank(str_input) 
                     : str_input,
             cur_index: index,
@@ -72,13 +71,20 @@ function Run(transitions, rule_name){
 }
 
 function show_output(val){
-    val.forEach(e => {
+    var counter = 0;
+    val.every(e => {
         var string;
+        if(counter > 1000){
+            $('#result').append("<tr><td>.....</td><td></td></tr>");
+            return false;
+        }
         for(let char in e.cur_string){
             (!string) ? string = e.cur_string[char] + " " : string += e.cur_string[char] + " "; 
         }
         var output = "<tr><td>" + string + "</td><td>" + e.state + "</td></tr>";
         $('#result').append(output);
+        counter++;
+        return true;
     });
     var string, zero_count = 0;
         for(let char in val[val.length - 1].cur_string){
@@ -93,12 +99,12 @@ function show_output(val){
 
 function EgInput(){
     var operasi = $('#operasi').val();
-    var addition = "";
+    var addition = "0<sup>n</sup>C0<sup>m</sup>";
     var substraction = "0<sup>n</sup>C0<sup>m</sup>";
     var multiplication = "(M)0<sup>n</sup>1(M)0<sup>m</sup>1";
     var division = "(M)0<sup>n</sup>1(M)0<sup>m</sup>";
     var factorial = "0<sup>n</sup>";
-    var power = "";
+    var power = "0<sup>n</sup>C0<sup>m</sup>";
     var logaritma_biner = "0<sup>n</sup>";
     var celcius_fahrenheit = "0<sup>30</sup>10<sup>n</sup>100";
     var celcius_kelvin = "0<sup>n</sup>";
